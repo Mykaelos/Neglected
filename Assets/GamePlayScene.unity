@@ -1440,6 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d352fbfdeeb1c4ca906e5b03857767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleEffect: {fileID: 0}
   IsInvincible: 0
   HealthMax: 100
   Health: 100
@@ -1632,6 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d352fbfdeeb1c4ca906e5b03857767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleEffect: {fileID: 0}
   IsInvincible: 0
   HealthMax: 100
   Health: 100
@@ -1956,6 +1958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d352fbfdeeb1c4ca906e5b03857767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleEffect: {fileID: 0}
   IsInvincible: 0
   HealthMax: 100
   Health: 100
@@ -2700,6 +2703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d352fbfdeeb1c4ca906e5b03857767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleEffect: {fileID: 0}
   IsInvincible: 0
   HealthMax: 100
   Health: 100
@@ -2835,7 +2839,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Child is gone.
+  m_Text: Your Child is gone.
 --- !u!222 &1253975643
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3108,7 +3112,7 @@ GameObject:
   - component: {fileID: 1387651880}
   - component: {fileID: 1387651879}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Heal Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3228,7 +3232,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -619354575
+  randomSeed: 2009268915
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6685,6 +6689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d352fbfdeeb1c4ca906e5b03857767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleEffect: {fileID: 0}
   IsInvincible: 0
   HealthMax: 100
   Health: 100
@@ -6938,6 +6943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d352fbfdeeb1c4ca906e5b03857767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleEffect: {fileID: 0}
   IsInvincible: 0
   HealthMax: 100
   Health: 100
@@ -7258,11 +7264,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4411565957605044, guid: c8d8787a7393a604da944797aef0ed78, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.49
+      value: -0.695
       objectReference: {fileID: 0}
     - target: {fileID: 4411565957605044, guid: c8d8787a7393a604da944797aef0ed78, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.025
+      value: -0.853
       objectReference: {fileID: 0}
     - target: {fileID: 4411565957605044, guid: c8d8787a7393a604da944797aef0ed78, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7942,6 +7948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d352fbfdeeb1c4ca906e5b03857767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleEffect: {fileID: 0}
   IsInvincible: 1
   HealthMax: 100
   Health: 100

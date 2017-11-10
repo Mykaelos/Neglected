@@ -1,26 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LivingEntityController : MonoBehaviour {
     public static string MESSAGE_DEATH = "LivingEntityController.MESSAGE_DEATH";
     public static string MESSAGE_INJURED = "LivingEntityController.MESSAGE_INJURED";
     public LocalMessenger LocalMessenger = new LocalMessenger();
 
+    public GameObject DeathParticleEffect;
+
     [Header("Health")]
     public bool IsInvincible = false;
     public float HealthMax = 100;
     public float Health = 100;
-    //public float Health {
-    //    get { return _Health; }
-    //    set {
-    //        _Health = Mathf.Clamp(value, 0, HealthMax);
-
-    //        if (!IsAlive()) {
-    //            OnDeath();
-    //        }
-    //    }
-    //}
     public float HealthFraction {
         get { return Health / HealthMax; }
     }
@@ -62,8 +52,17 @@ public class LivingEntityController : MonoBehaviour {
         return IsInvincible || Health > 0;
     }
 
+    public void Kill() {
+        Injure(Health, null);
+    }
+
     public virtual void OnDeath() {
         LocalMessenger.Fire(MESSAGE_DEATH);
+
+        if (DeathParticleEffect != null) {
+            Destroy(GameObject.Instantiate<GameObject>(DeathParticleEffect, transform.position, Quaternion.identity), 1f);
+        }
+
         Destroy(this.gameObject);
     }
 }

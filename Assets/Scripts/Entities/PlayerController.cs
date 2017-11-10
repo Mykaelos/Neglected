@@ -15,7 +15,7 @@ public class PlayerController : AnimatedEntityController {
         PlayerStatusController = GetComponent<PlayerStatusController>();
         MouseFacingController = GetComponent<MouseFacingController>();
 
-        PlayerStatusController.LocalMessenger.On(PlayerStatusController.MESSAGE_DEATH, OnDeath);
+        PlayerStatusController.LocalMessenger.On(LivingEntityController.MESSAGE_DEATH, OnDeath);
 
         Camera.main.transform.position.Set(transform.position.x, transform.position.y, Camera.main.transform.position.z);
         Camera.main.transform.SetParent(transform, false);

@@ -5,9 +5,9 @@ public class CreepController : AnimatedEntityController {
     public float WanderSpeed = 45;
     public float PursueSpeed = 90;
     public GameObject Target = null;
-    public float Damage = 1;
+    public float Damage = 10;
 
-    public CircleCollider2D TriggerCollider;
+    CircleCollider2D TriggerCollider;
     AudioSource AudioSource;
     LivingEntityController LivingEntityController;
 
@@ -46,12 +46,15 @@ public class CreepController : AnimatedEntityController {
         if (other.gameObject.tag.Equals("Player") || other.gameObject.tag.Equals("Objective")) {
             var entity = other.gameObject.GetComponent<LivingEntityController>();
             entity.Injure(Damage, gameObject);
+            LivingEntityController.Kill();
         }
     }
 
     private void OnInjure(object[] args) {
-        GameObject attacker = (GameObject)args[0];
-        SetTarget(attacker);
+        if (!args.IsNullOrEmpty()) {
+            GameObject attacker = (GameObject)args[0];
+            SetTarget(attacker);
+        }
     }
 
     public void SetTarget(GameObject newTarget) {
