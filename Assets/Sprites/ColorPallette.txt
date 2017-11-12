@@ -1,0 +1,16 @@
+Blacks and Grays:
+000000
+2a2a2a
+545454
+7e7e7e - Text and Titles
+a8a8a8
+d2d2d2
+fcfcfc
+
+Health       - Red a80000
+Energy       - Yellow a8a800
+Wealth       - Green 00a800
+
+Love
+Fulfillment  - Purple a800a8
+Happiness    - Blue 0000a8

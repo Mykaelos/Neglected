@@ -67,11 +67,11 @@ public class PlayerStatusController : LivingEntityController {
 /**
  * Health       - Red a80000
  * Energy       - Yellow a8a800
+ * Wealth       - Green 00a800
  * 
  * //Love
  * Fulfillment  - Purple a800a8
  * Happiness    - Blue 0000a8
- * Wealth       - Green 00a800
  * 
  * 
  * Rest     = +Energy

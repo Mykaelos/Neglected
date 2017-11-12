@@ -7,6 +7,7 @@ public class PlayerShootingController : MonoBehaviour {
     private MouseFacingController MouseFacingController;
 
     public GameObject BulletPrefab;
+    public AudioClip ShootingSound;
     private Transform SpawnPoint;
 
     public float EnergyCostPerShot = 1;
@@ -57,5 +58,7 @@ public class PlayerShootingController : MonoBehaviour {
         BulletController bulletController = bullet.GetComponent<BulletController>();
         bulletController.Shooter = gameObject;
         bulletController.Damage = Damage;
+
+        SoundEffectManager.PlaySound(transform, ShootingSound);
     }
 }

@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+************** WOULD BE NICE: **************
+Create a sound class that makes one off sound effects (pool?) so that they can live beyond object destruction and scene destruction. 
+- replace the title scene button click to do this
+- replace bullets to do this
+
+Find a way to FadeIn after SceneChangeButtonController FadesOut.
