@@ -294,6 +294,7 @@ MonoBehaviour:
   EnergyRegen: 10
   EnergyDrain: 0
   WeathRegen: 0
+  WeathDrain: 0
   HappinessRegen: 0
   FulfillmentRegen: 0
 --- !u!114 &114985438293058624

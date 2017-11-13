@@ -1,5 +1,22 @@
 
+************** TODOs: **************
 
+
+
+
+
+PlayerQualities:
+- wealthy - player gains wealth +50% faster
+- player is 50% slower
+- player has 50% less max health
+- 50% higher decay respawn rate
+- rose tinted - player light is red/pink
+- 
+
+
+PlayerStatManager
+Generic StatManager
+- 
 
 
 

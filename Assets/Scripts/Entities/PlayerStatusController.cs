@@ -35,6 +35,8 @@ public class PlayerStatusController : LivingEntityController {
     public float WealthFraction {
         get { return Wealth / WealthMax; }
     }
+    public float WealthGenerationPercentBonus = 1;
+
 
     [Header("Happiness")]
     public float HappinessMax = 100;
@@ -60,6 +62,13 @@ public class PlayerStatusController : LivingEntityController {
     }
     public float FulfillmentFraction {
         get { return Fulfillment / FulfillmentMax; }
+    }
+
+    public void Setup(PlayerStatManager playerStatManager) {
+        HealthMax = 100 * (playerStatManager.Get("HEALTH_MAX_PERCENT") / 100f + 1f);
+        Health = HealthMax;
+
+        WealthGenerationPercentBonus = playerStatManager.Get("WEALTH_GENERATION_PERCENT") / 100f + 1f;
     }
 }
 

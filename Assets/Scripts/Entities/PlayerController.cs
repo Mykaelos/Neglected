@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class PlayerController : AnimatedEntityController {
+    public PlayerStatManager PlayerStatManager;
     private PlayerStatusController PlayerStatusController;
     private MouseFacingController MouseFacingController;
 
@@ -9,7 +10,16 @@ public class PlayerController : AnimatedEntityController {
     public float BaseSpeed = 180f;
     public float ExhaustionMinimumBonus = 0.4f;
     public float CurrentSpeed;
+    public float RunSpeedPercentBonus = 1;
 
+
+    public void Setup(PlayerStatManager playerStatManager) {
+        PlayerStatManager = playerStatManager;
+
+        RunSpeedPercentBonus = PlayerStatManager.Get("RUN_SPEED_PERCENT") / 100f + 1f;
+
+        PlayerStatusController.Setup(PlayerStatManager);
+    }
 
     void Start() {
         PlayerStatusController = GetComponent<PlayerStatusController>();
@@ -31,7 +41,7 @@ public class PlayerController : AnimatedEntityController {
 
     void UpdateMoveSpeed() {
         float exhaustionBonus = Mathf.Lerp(ExhaustionMinimumBonus, 1f, LerpHelper.CurveToOneFastSlow(PlayerStatusController.EnergyFraction, 2));
-        CurrentSpeed = BaseSpeed * exhaustionBonus;
+        CurrentSpeed = BaseSpeed * exhaustionBonus * RunSpeedPercentBonus;
     }
 
     void UpdatePlayerMovement() {

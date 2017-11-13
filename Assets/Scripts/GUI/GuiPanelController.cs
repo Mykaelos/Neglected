@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GuiPanelController : MonoBehaviour {
     private PlayerStatusController PlayerStatusController;
+    private PlayerStatManager PlayerStatManager;
 
     Image HealthBar;
     Image EnergyBar;
@@ -12,6 +13,18 @@ public class GuiPanelController : MonoBehaviour {
     Image HappinessBar;
     Image WealthBar;
 
+    Text StatusText;
+
+
+    public void Setup(PlayerStatManager playerStatManager, PlayerStatusController playerStatusController) {
+        PlayerStatusController = playerStatusController;
+        PlayerStatManager = playerStatManager;
+
+        HealthBar.rectTransform.sizeDelta = new Vector2(PlayerStatusController.HealthMax, HealthBar.rectTransform.sizeDelta.y);
+        EnergyBar.rectTransform.sizeDelta = new Vector2(PlayerStatusController.EnergyMax, EnergyBar.rectTransform.sizeDelta.y);
+
+        UpdateStatusText();
+    }
 
     void Awake() {
         HealthBar = transform.Find("Health/Image").GetComponent<Image>();
@@ -33,23 +46,18 @@ public class GuiPanelController : MonoBehaviour {
         WealthBar = transform.Find("Wealth/Image").GetComponent<Image>();
         WealthBar.color = PlayerStatusController.WealthColor;
         transform.Find("Wealth/Text").GetComponent<Text>().color = PlayerStatusController.WealthColor;
-    }
 
-    void Start() {
-        // Doing some dirty cheating here. I should be injecting this instead, but time is of the essense in a game jam...
-        PlayerStatusController = GameObjectM.GetComponentOnObject<PlayerStatusController>("Player");
-
-        if (PlayerStatusController == null) {
-            GetComponent<CanvasGroup>().SetVisible(false);
-        }
+        StatusText = transform.Find("StatusText").GetComponent<Text>();
     }
 
     void Update() {
-        UpdateHealthBar();
-        UpdateEnergyBar();
-        UpdateFulfillmentBar();
-        UpdateHappinessBar();
-        UpdateWealthBar();
+        if (PlayerStatusController != null) {
+            UpdateHealthBar();
+            UpdateEnergyBar();
+            UpdateFulfillmentBar();
+            UpdateHappinessBar();
+            UpdateWealthBar();
+        }
     }
 
     void UpdateHealthBar() {
@@ -70,5 +78,15 @@ public class GuiPanelController : MonoBehaviour {
 
     void UpdateWealthBar() {
         WealthBar.fillAmount = PlayerStatusController.WealthFraction;
+    }
+
+    void UpdateStatusText() {
+        string text = "";
+
+        foreach (var card in PlayerStatManager.CurrentCards) {
+            text += card.Name + "\n";
+        }
+
+        StatusText.text = text;
     }
 }

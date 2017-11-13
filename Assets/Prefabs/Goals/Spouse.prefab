@@ -222,8 +222,9 @@ MonoBehaviour:
   EnergyRegen: 0
   EnergyDrain: 3
   WeathRegen: 0
-  HappinessRegen: 1
-  FulfillmentRegen: 0.5
+  WeathDrain: 5
+  HappinessRegen: 5
+  FulfillmentRegen: 3
 --- !u!114 &114427555072988708
 MonoBehaviour:
   m_ObjectHideFlags: 1

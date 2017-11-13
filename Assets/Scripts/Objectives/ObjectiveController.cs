@@ -14,6 +14,9 @@ public class ObjectiveController : MonoBehaviour {
     public float EnergyDrain = 0;
 
     public float WeathRegen = 0;
+    public float WeathDrain = 0;
+
+
     public float HappinessRegen = 0;
     public float FulfillmentRegen = 0;
 
@@ -49,16 +52,20 @@ public class ObjectiveController : MonoBehaviour {
         if (other.gameObject.tag.Equals("Player")) {
             var statusController = other.gameObject.GetComponent<PlayerStatusController>();
 
-            statusController.Heal(HealthRegen * Time.deltaTime);
+            if (statusController.Energy >= EnergyDrain * Time.deltaTime && statusController.Wealth >= WeathDrain * Time.deltaTime) {
+                statusController.Heal(HealthRegen * Time.deltaTime);
 
-            statusController.Energy += EnergyRegen * Time.deltaTime;
-            statusController.Energy -= EnergyDrain * Time.deltaTime;
+                statusController.Energy += EnergyRegen * Time.deltaTime;
+                statusController.Energy -= EnergyDrain * Time.deltaTime;
 
-            statusController.Wealth += WeathRegen * Time.deltaTime;
-            statusController.Happiness += HappinessRegen * Time.deltaTime;
-            statusController.Fulfillment += FulfillmentRegen * Time.deltaTime;
+                statusController.Wealth += WeathRegen * Time.deltaTime * statusController.WealthGenerationPercentBonus;
+                statusController.Wealth -= WeathDrain * Time.deltaTime;
 
-            LivingEntityController.Heal(HealRate * Time.deltaTime);
+                statusController.Happiness += HappinessRegen * Time.deltaTime;
+                statusController.Fulfillment += FulfillmentRegen * Time.deltaTime;
+
+                LivingEntityController.Heal(HealRate * Time.deltaTime);
+            }
         }
     }
 
