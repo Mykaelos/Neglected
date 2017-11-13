@@ -13,6 +13,7 @@ public class GuiPanelController : MonoBehaviour {
     Image HappinessBar;
     Image WealthBar;
 
+    Text AgeText;
     Text StatusText;
 
 
@@ -47,6 +48,7 @@ public class GuiPanelController : MonoBehaviour {
         WealthBar.color = PlayerStatusController.WealthColor;
         transform.Find("Wealth/Text").GetComponent<Text>().color = PlayerStatusController.WealthColor;
 
+        AgeText = transform.Find("AgeText").GetComponent<Text>();
         StatusText = transform.Find("StatusText").GetComponent<Text>();
     }
 
@@ -57,6 +59,7 @@ public class GuiPanelController : MonoBehaviour {
             UpdateFulfillmentBar();
             UpdateHappinessBar();
             UpdateWealthBar();
+            UpdateAgeText();
         }
     }
 
@@ -78,6 +81,10 @@ public class GuiPanelController : MonoBehaviour {
 
     void UpdateWealthBar() {
         WealthBar.fillAmount = PlayerStatusController.WealthFraction;
+    }
+
+    void UpdateAgeText() {
+        AgeText.text = "{0} years old".FormatWith(PlayerStatusController.Age.ToString("N1"));
     }
 
     void UpdateStatusText() {

@@ -70,6 +70,24 @@ public class PlayerStatusController : LivingEntityController {
 
         WealthGenerationPercentBonus = playerStatManager.Get("WEALTH_GENERATION_PERCENT") / 100f + 1f;
     }
+
+    public float AgeStart = 18f;
+    public float AgeMax = 90f;
+    public float Age = 18f;
+    public float AgingRate = (90f - 18f) / (10f * 60f); // Aging from 18 to 90 over 10 minutes
+    public float AgeRelatedDecay {
+        get { return Mathf.Lerp(1, 0.1f, (Age - AgeStart) / (AgeMax - AgeStart)); }
+    }
+
+    void Update() {
+        UpdateAge();
+    }
+
+    private void UpdateAge() {
+        if (IsAlive()) {
+            Age += Time.deltaTime * AgingRate;
+        }
+    }
 }
 
 

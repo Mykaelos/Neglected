@@ -21,14 +21,18 @@ public class PlayerController : AnimatedEntityController {
         PlayerStatusController.Setup(PlayerStatManager);
     }
 
-    void Start() {
+    protected override void Awake() {
+        base.Awake();
+
         PlayerStatusController = GetComponent<PlayerStatusController>();
         MouseFacingController = GetComponent<MouseFacingController>();
 
         PlayerStatusController.LocalMessenger.On(LivingEntityController.MESSAGE_DEATH, OnDeath);
+    }
 
+    void Start() {
         Camera.main.transform.position.Set(transform.position.x, transform.position.y, Camera.main.transform.position.z);
-        Camera.main.transform.SetParent(transform, false);
+        Camera.main.transform.SetParent(transform, true);
     }
 
     void FixedUpdate() {
@@ -41,7 +45,7 @@ public class PlayerController : AnimatedEntityController {
 
     void UpdateMoveSpeed() {
         float exhaustionBonus = Mathf.Lerp(ExhaustionMinimumBonus, 1f, LerpHelper.CurveToOneFastSlow(PlayerStatusController.EnergyFraction, 2));
-        CurrentSpeed = BaseSpeed * exhaustionBonus * RunSpeedPercentBonus;
+        CurrentSpeed = BaseSpeed * exhaustionBonus * RunSpeedPercentBonus * PlayerStatusController.AgeRelatedDecay;
     }
 
     void UpdatePlayerMovement() {

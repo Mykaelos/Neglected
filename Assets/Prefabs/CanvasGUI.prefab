@@ -27,6 +27,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1188435761971170
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224033785679883258}
+  - component: {fileID: 222208319346854250}
+  - component: {fileID: 114265867153532694}
+  m_Layer: 5
+  m_Name: StatusText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1192680259539188
 GameObject:
   m_ObjectHideFlags: 1
@@ -38,7 +55,7 @@ GameObject:
   - component: {fileID: 222854883592842142}
   - component: {fileID: 114609113600589850}
   m_Layer: 5
-  m_Name: StatusText
+  m_Name: AgeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,6 +390,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1527a2ed14b6fcd4999ab924c8fbc5c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114265867153532694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188435761971170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 40d95065d5af76b4b9e18178525acd1c, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 63
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Chronic Fatigue
+
+    Athletic
+
+    Resilient'
 --- !u!114 &114277109858000802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,11 +573,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Chronic Fatigue
-
-    Athletic
-
-    Resilient'
+  m_Text: 18.5 years old
 --- !u!114 &114737119228364102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -759,7 +809,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your Child is gone.
+  m_Text: Your Hobby is gone.
 --- !u!114 &114967033412720526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -823,6 +873,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1426896512304138}
+--- !u!222 &222208319346854250
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188435761971170}
 --- !u!222 &222268519845233344
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -921,6 +977,24 @@ Canvas:
   m_SortingLayerID: 415422081
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!224 &224033785679883258
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188435761971170}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: -106, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224833555237102392}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -96}
+  m_SizeDelta: {x: 220, y: 150}
+  m_Pivot: {x: 0, y: 1}
 --- !u!224 &224149699881661836
 RectTransform:
   m_ObjectHideFlags: 1
@@ -1076,7 +1150,7 @@ RectTransform:
   m_GameObject: {fileID: 1192680259539188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10, y: -82, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0002859, y: 1.0002859, z: 1.0002859}
   m_Children: []
   m_Father: {fileID: 224833555237102392}
   m_RootOrder: 3
@@ -1099,7 +1173,7 @@ RectTransform:
   - {fileID: 224203870498717392}
   - {fileID: 224316590293285338}
   m_Father: {fileID: 224833555237102392}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1138,6 +1212,7 @@ RectTransform:
   - {fileID: 224329567339140462}
   - {fileID: 224999310863637194}
   - {fileID: 224570314209658618}
+  - {fileID: 224033785679883258}
   - {fileID: 224656483238617464}
   - {fileID: 224939636969318816}
   - {fileID: 224874823004220716}
@@ -1178,7 +1253,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224833555237102392}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1236,7 +1311,7 @@ RectTransform:
   - {fileID: 224342472880721954}
   - {fileID: 224509464712322662}
   m_Father: {fileID: 224833555237102392}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}

@@ -180,9 +180,9 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
-  m_Range: 4
-  m_SpotAngle: 30
+  m_Intensity: 1.5
+  m_Range: 10
+  m_SpotAngle: 98.1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -283,13 +283,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d9eec8b74d3ac459612ac6bde53404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleEffect: {fileID: 0}
   IsInvincible: 0
   HealthMax: 100
   Health: 100
   EnergyMax: 100
   WealthMax: 100
+  WealthGenerationPercentBonus: 1
   HappinessMax: 100
   FulfillmentMax: 100
+  AgeStart: 18
+  AgeMax: 90
+  Age: 18
+  AgingRate: 0.12
 --- !u!114 &114085164687370806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,8 +309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 1819940634664698, guid: 972c027ce86be5d4c82ab9e3beecf3b1,
     type: 2}
+  ShootingSound: {fileID: 8300000, guid: 775cc0276d9813b40875a500783f2ed0, type: 3}
   EnergyCostPerShot: 1
-  Damage: 10
+  Damage: 40
   RefireDelay: 0.2
 --- !u!114 &114969376491130706
 MonoBehaviour:
@@ -321,6 +328,7 @@ MonoBehaviour:
   BaseSpeed: 180
   ExhaustionMinimumBonus: 0.5
   CurrentSpeed: 0
+  RunSpeedPercentBonus: 1
 --- !u!212 &212285176753456252
 SpriteRenderer:
   m_ObjectHideFlags: 1
